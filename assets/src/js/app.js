@@ -111,7 +111,14 @@ var vm = new Vue({
 
         finishOrder: function()
         {
-            window.print();
+            var needsPrinting = false;
+            this.orderArticles.forEach(function(el) {
+                if(el.article.beleg === 1)
+                    needsPrinting = true
+            });
+
+            if(needsPrinting)
+                window.print();
             this.clearOrder(); 
             this.clearGiven();   
         },
