@@ -11,9 +11,9 @@
     <div class="container-fluid">
         
         <div class="row">
-            <div class="col-md-7 articles">
+            <div class="col-md-7 col-sm-7 articles">
                 <div class="row">
-                    <div v-repeat="article in activeGroupArticles" class="article-{{$index}} col-md-2">
+                    <div v-repeat="article in activeGroupArticles" class="article-{{$index}} col-md-2 col-sm-2">
                         <button class="btn btn-default square" v-on="click: addArticleToOrder(article)">
                             <p class="price">{{article.price}} CHF</p>
                             <p class="name">{{article.name}}</p>
@@ -22,21 +22,22 @@
                 </div>  
 
                 <div class="row">
-                    <div v-repeat="group in groups" class="col-md-2" >
+                    <div v-repeat="group in groups" class="col-md-2 col-sm-2" >
                         <button v-class="active: group.id === this.activeGroup.id" class="square btn btn-primary" v-on="click: setActiveGroup(group)">
                             <p class="name">{{group.name}}</p>
                         </button>
                     </div>
-                    <div class="col-md-2">
+                    <div class="col-md-2 col-sm-2">
                         <button v-show="activeGroup !== null" class="square btn btn-danger" v-on="click: setActiveGroup(null)">
                             <p class="name">Alle Anzeigen</p>
                         </button>
                     </div>
                 </div>  
             </div>
-            <div class="col-md-2 orderList">
+            <div class="col-md-2 col-sm-2 orderList">
                 <h2>Order</h2>
                 <ul>
+                    <li class="printonly">Order Nr. {{ orderId }}</li>
                     <li v-on="click: removeOrderArticle(orderArticle)" v-repeat="orderArticle in orderArticles">
                         <span class="orderarticle-{{$index}}">
                             {{orderArticle.article.name}} 
@@ -48,27 +49,27 @@
                 </ul>
             </div>
 
-            <div class="col-md-3 sidebar">
+            <div class="col-md-3 col-sm-3 sidebar">
                 <div class="keyboard">
                     <div class="row">
-                        <div class="col-md-4"><button v-on="click: addToGiven('1')" class="btn btn-success btn-lg">1</button></div>
-                        <div class="col-md-4"><button v-on="click: addToGiven('2')" class="btn btn-success btn-lg">2</button></div>
-                        <div class="col-md-4"><button v-on="click: addToGiven('3')" class="btn btn-success btn-lg">3</button></div>
+                        <div class="col-md-4 col-sm-4"><button v-on="click: addToGiven('1')" class="btn btn-success btn-lg">1</button></div>
+                        <div class="col-md-4 col-sm-4"><button v-on="click: addToGiven('2')" class="btn btn-success btn-lg">2</button></div>
+                        <div class="col-md-4 col-sm-4"><button v-on="click: addToGiven('3')" class="btn btn-success btn-lg">3</button></div>
                     </div>
                     <div class="row">
-                        <div class="col-md-4"><button v-on="click: addToGiven('4')" class="btn btn-success btn-lg">4</button></div>
-                        <div class="col-md-4"><button v-on="click: addToGiven('5')" class="btn btn-success btn-lg">5</button></div>
-                        <div class="col-md-4"><button v-on="click: addToGiven('6')" class="btn btn-success btn-lg">6</button></div>
+                        <div class="col-md-4 col-sm-4"><button v-on="click: addToGiven('4')" class="btn btn-success btn-lg">4</button></div>
+                        <div class="col-md-4 col-sm-4"><button v-on="click: addToGiven('5')" class="btn btn-success btn-lg">5</button></div>
+                        <div class="col-md-4 col-sm-4"><button v-on="click: addToGiven('6')" class="btn btn-success btn-lg">6</button></div>
                     </div>
                     <div class="row">
-                        <div class="col-md-4"><button v-on="click: addToGiven('7')" class="btn btn-success btn-lg">7</button></div>
-                        <div class="col-md-4"><button v-on="click: addToGiven('8')" class="btn btn-success btn-lg">8</button></div>
-                        <div class="col-md-4"><button v-on="click: addToGiven('9')" class="btn btn-success btn-lg">9</button></div>
+                        <div class="col-md-4 col-sm-4"><button v-on="click: addToGiven('7')" class="btn btn-success btn-lg">7</button></div>
+                        <div class="col-md-4 col-sm-4"><button v-on="click: addToGiven('8')" class="btn btn-success btn-lg">8</button></div>
+                        <div class="col-md-4 col-sm-4"><button v-on="click: addToGiven('9')" class="btn btn-success btn-lg">9</button></div>
                     </div>
                     <div class="row">
-                        <div class="col-md-4"><button v-on="click: clearGiven" class="btn btn-default btn-lg cancel">Cancel</button></div>
-                        <div class="col-md-4"><button v-on="click: addToGiven('0')" class="btn btn-success btn-lg">0</button></div>
-                        <div class="col-md-4"><button v-on="click: addToGiven('.')" class="btn btn-default btn-lg">.</button></div>
+                        <div class="col-md-4 col-sm-4"><button v-on="click: clearGiven" class="btn btn-default btn-lg cancel">Cancel</button></div>
+                        <div class="col-md-4 col-sm-4"><button v-on="click: addToGiven('0')" class="btn btn-success btn-lg">0</button></div>
+                        <div class="col-md-4 col-sm-4"><button v-on="click: addToGiven('.')" class="btn btn-default btn-lg">.</button></div>
                     </div>
                 </div>
 

@@ -124,11 +124,21 @@
         }
     }
 }
+.printonly {
+    display: none;
+}
 
 @media print {
+    .printonly {
+        display: block;
+    }
+
     #app {
-        .articles, .keyboard, .price button, .price .given, .price .return {
+        .articles, .keyboard, .price button, .price .given, .price .return, .del {
             display:none;
+        }
+        .statusbar {
+            display: none;
         }
         .col-md-2.orderList, .col-md-3.sidebar {
             width: 100%!important;

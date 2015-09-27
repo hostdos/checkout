@@ -14,6 +14,7 @@ var vm = new Vue({
         orderArticles: [],
         activeGroup: null,
         amountGiven: '',
+        orderId: 0,
 
         displayStatusbar: false,
         statusbarText: '',
@@ -91,15 +92,14 @@ var vm = new Vue({
             });
             articleList = {article: articleList};
             var xhr = new XMLHttpRequest();
-
+ 
             var self = this;
             xhr.open('POST', this.baseUrl + '/orders');
             xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
             xhr.onload = function () {
-                self.showStatusbar('Order successful');
-                self.clearOrder(); 
-                self.clearGiven();
-                window.print();  
+                self.orderId = +xhr.responseText; 
+                self.showStatusbar('Order Nr. ' + self.orderId + ' successful');
+                setTimeout(self.finishOrder, 100); 
             };
             xhr.onerror = function () {
                 self.showStatusbar('Error: No connection to server - ' + status, true);
@@ -108,6 +108,13 @@ var vm = new Vue({
 
 
         }, 
+
+        finishOrder: function()
+        {
+            window.print();
+            this.clearOrder(); 
+            this.clearGiven();   
+        },
 
         clearOrder: function()
         {

@@ -93,8 +93,16 @@
       #app .sidebar .actions .btn-danger {
         margin-left: 15px; }
 
+.printonly {
+  display: none; }
+
 @media print {
-  #app .articles, #app .keyboard, #app .price button, #app .price .given, #app .price .return {
+  .printonly {
+    display: block; }
+
+  #app .articles, #app .keyboard, #app .price button, #app .price .given, #app .price .return, #app .del {
+    display: none; }
+  #app .statusbar {
     display: none; }
   #app .col-md-2.orderList, #app .col-md-3.sidebar {
     width: 100% !important;
