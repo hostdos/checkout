@@ -1,0 +1,144 @@
+.statusbar {
+    position: fixed;
+    top: 0px;
+    height: 50px;
+    width: 100%;
+    z-index: 1;
+    color: #fff;
+    background-color: #5cb85c;
+    border-color: #4cae4c;
+    transition: all .3s ease;
+    padding: 15px;
+    font-size: 18px;
+    line-height: 18px;
+    text-align: center;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+    &.error {
+        background-color: #d9534f;
+        border-color: #d43f3a;
+    }
+}
+.statusbar.v-enter, .statusbar.v-leave {
+    height: 0;
+    padding: 0 10px;
+    opacity: 0;
+}
+#app {
+    font-family: 'PT Sans', sans-serif;
+    margin-top: 15px;
+    .row {
+        display: -webkit-box;
+          display: -webkit-flex;
+          display: -ms-flexbox;
+          display:         flex;
+    }
+
+    .articles {
+        .row {
+            margin-bottom: 30px;
+        }
+        .square {
+            height: 150px;
+            text-align: center;
+            border: 1px solid black;
+            width: 100%; 
+            word-wrap:break-word; 
+            white-space: normal;
+            .name {
+                font-size: 18px;
+                word-wrap:break-word;
+            }
+            .price {
+                font-weight: bold;
+                word-wrap:break-word;
+                font-size: 24px;
+            }
+        }
+    }
+    .orderList {
+        border-left: 1px solid black;
+        text-align: center;
+        background: #eeeeee;
+        ul {
+            text-align: left;
+            padding-left: 15px;
+            li {
+                font-size: 24px;
+                margin-top: 15px;
+                list-style-type: none;
+                &:hover {
+                    cursor: pointer;
+                }
+                .del {
+                    color: red;
+                }
+            }
+        }
+    }
+    .sidebar {
+        border-left: 1px solid black;
+        
+        .keyboard {
+            padding-bottom: 15px;
+            border-bottom: 1px solid black;
+            .row {
+                margin-bottom: 15px;
+                button {
+                    font-size: 34px;
+                    &.cancel {
+                        font-size: 21px;
+                    }
+                }
+            }
+            button {
+                width: 100%;
+                height: 100px;
+            }
+        }
+
+        .price {
+            margin-top: 15px;
+            font-size: 32px;
+            .total {
+                font-weight: bold;
+            }
+            .return, .given {
+                font-size: 26px;
+            }
+            .return {
+                color: #5cb85c;
+                font-weight: bold;
+                font-style: italic;
+            }
+        }
+
+        .actions {
+            margin-top: 30px;
+            button {
+                height: 75px;
+            }
+            .btn-danger {
+                margin-left: 15px;
+            }
+        }
+    }
+}
+
+@media print {
+    #app {
+        .articles, .keyboard, .price button, .price .given, .price .return {
+            display:none;
+        }
+        .col-md-2.orderList, .col-md-3.sidebar {
+            width: 100%!important;
+            display: block!important;
+            float: none;
+            text-align: left;
+            border: none;
+        }
+        .row {
+            display: block;
+        }
+    }
+}

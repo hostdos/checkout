@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Switzerlan Kassensystem</title>
+    <link href='https://fonts.googleapis.com/css?family=PT+Sans:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href="/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="/assets/dist/css/app.css" rel="stylesheet" />
+</head>
+<body id="app">
+    <div class="statusbar" v-if="displayStatusbar" v-transition v-class="error: statusbarError">{{statusbarText}}</div>
+    <div class="container-fluid">
+        
+        <div class="row">
+            <div class="col-md-7 articles">
+                <div class="row">
+                    <div v-repeat="article in activeGroupArticles" class="article-{{$index}} col-md-2">
+                        <button class="btn btn-default square" v-on="click: addArticleToOrder(article)">
+                            <p class="price">{{article.price}} CHF</p>
+                            <p class="name">{{article.name}}</p>
+                        </button>
+                    </div>
+                </div>  
+
+                <div class="row">
+                    <div v-repeat="group in groups" class="col-md-2" >
+                        <button v-class="active: group.id === this.activeGroup.id" class="square btn btn-primary" v-on="click: setActiveGroup(group)">
+                            <p class="name">{{group.name}}</p>
+                        </button>
+                    </div>
+                    <div class="col-md-2">
+                        <button v-show="activeGroup !== null" class="square btn btn-danger" v-on="click: setActiveGroup(null)">
+                            <p class="name">Alle Anzeigen</p>
+                        </button>
+                    </div>
+                </div>  
+            </div>
+            <div class="col-md-2 orderList">
+                <h2>Order</h2>
+                <ul>
+                    <li v-on="click: removeOrderArticle(orderArticle)" v-repeat="orderArticle in orderArticles">
+                        <span class="orderarticle-{{$index}}">
+                            {{orderArticle.article.name}} 
+                            - {{orderArticle.article.price}} CHF
+                        </span>
+                        <span class="del">&#10007;</span>
+                    </li>
+
+                </ul>
+            </div>
+
+            <div class="col-md-3 sidebar">
+                <div class="keyboard">
+                    <div class="row">
+                        <div class="col-md-4"><button v-on="click: addToGiven('1')" class="btn btn-success btn-lg">1</button></div>
+                        <div class="col-md-4"><button v-on="click: addToGiven('2')" class="btn btn-success btn-lg">2</button></div>
+                        <div class="col-md-4"><button v-on="click: addToGiven('3')" class="btn btn-success btn-lg">3</button></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4"><button v-on="click: addToGiven('4')" class="btn btn-success btn-lg">4</button></div>
+                        <div class="col-md-4"><button v-on="click: addToGiven('5')" class="btn btn-success btn-lg">5</button></div>
+                        <div class="col-md-4"><button v-on="click: addToGiven('6')" class="btn btn-success btn-lg">6</button></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4"><button v-on="click: addToGiven('7')" class="btn btn-success btn-lg">7</button></div>
+                        <div class="col-md-4"><button v-on="click: addToGiven('8')" class="btn btn-success btn-lg">8</button></div>
+                        <div class="col-md-4"><button v-on="click: addToGiven('9')" class="btn btn-success btn-lg">9</button></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4"><button v-on="click: clearGiven" class="btn btn-default btn-lg cancel">Cancel</button></div>
+                        <div class="col-md-4"><button v-on="click: addToGiven('0')" class="btn btn-success btn-lg">0</button></div>
+                        <div class="col-md-4"><button v-on="click: addToGiven('.')" class="btn btn-default btn-lg">.</button></div>
+                    </div>
+                </div>
+
+                <div class="price">
+                    <p class="total">Total: {{totalPrice}} CHF</p>
+                    <p class="given">Given: {{amountGiven}} CHF</p>
+                    <p class="return">Back: {{amountToReturn}} CHF</p>
+                    <div class="actions">
+                        <button class="btn btn-lg btn-primary" v-attr="disabled: orderArticles.length == 0" v-on="click: makeOrder">Make Order</button>
+                        <button class="btn btn-lg btn-danger" v-attr="disabled: orderArticles.length == 0" v-on="click: clearOrder">Cancel Order</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+            
+    </div>
+
+    <script type="text/javascript" src="/bower_components/vue/dist/vue.min.js"></script>
+    <script type="text/javascript" src="/bower_components/vue-resource/dist/vue-resource.min.js"></script>
+    <script type="text/javascript" src="/assets/dist/js/app.js"></script>
+</body>
+</html>
