@@ -149,7 +149,7 @@
             border: none;
         }
         .price .total {
-            font-size: 16px;
+            font-size: 14px;
 
         }
         .orderList {
@@ -158,12 +158,19 @@
 
             }
             .printonly {
-                font-size: 18px;
+                font-size: 16px;
+                &::before {
+                    display: none;
+                }
             }
             ul {
                 padding-left: 0px;
                 li {
-                    font-size: 14px;
+                    font-size: 12px;
+                    &::before {
+                        content: "-";
+                        display: inline-block;
+                    }
                 }
             }
         }
