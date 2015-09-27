@@ -113,7 +113,8 @@ var vm = new Vue({
         {
             var needsPrinting = false;
             this.orderArticles.forEach(function(el) {
-                if(el.article.beleg === 1)
+                console.log(el.article);
+                if(+el.article.beleg === 1)
                     needsPrinting = true;
             });
 
