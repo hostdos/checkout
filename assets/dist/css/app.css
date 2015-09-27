@@ -100,15 +100,27 @@
   .printonly {
     display: block; }
 
-  #app .articles, #app .keyboard, #app .price button, #app .price .given, #app .price .return, #app .del {
-    display: none; }
-  #app .statusbar {
-    display: none; }
-  #app .col-md-2.orderList, #app .col-md-3.sidebar {
-    width: 100% !important;
-    display: block !important;
-    float: none;
-    text-align: left;
-    border: none; }
-  #app .row {
-    display: block; } }
+  #app {
+    font-family: sans-serif; }
+    #app .articles, #app .keyboard, #app .price button, #app .price .given, #app .price .return, #app .del {
+      display: none; }
+    #app .statusbar {
+      display: none; }
+    #app .col-md-2.orderList, #app .col-md-3.sidebar {
+      width: 100% !important;
+      display: block !important;
+      float: none;
+      text-align: left;
+      border: none; }
+    #app .price .total {
+      font-size: 16px; }
+    #app .orderList h2 {
+      display: none; }
+    #app .orderList .printonly {
+      font-size: 18px; }
+    #app .orderList ul {
+      padding-left: 0px; }
+      #app .orderList ul li {
+        font-size: 14px; }
+    #app .row {
+      display: block; } }

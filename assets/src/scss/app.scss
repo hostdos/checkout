@@ -29,9 +29,9 @@
     margin-top: 15px;
     .row {
         display: -webkit-box;
-          display: -webkit-flex;
-          display: -ms-flexbox;
-          display:         flex;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
     }
 
     .articles {
@@ -134,6 +134,7 @@
     }
 
     #app {
+        font-family: sans-serif;
         .articles, .keyboard, .price button, .price .given, .price .return, .del {
             display:none;
         }
@@ -146,6 +147,25 @@
             float: none;
             text-align: left;
             border: none;
+        }
+        .price .total {
+            font-size: 16px;
+
+        }
+        .orderList {
+            h2 {
+                display: none;
+
+            }
+            .printonly {
+                font-size: 18px;
+            }
+            ul {
+                padding-left: 0px;
+                li {
+                    font-size: 14px;
+                }
+            }
         }
         .row {
             display: block;
