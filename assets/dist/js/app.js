@@ -114,7 +114,7 @@ var vm = new Vue({
             var needsPrinting = false;
             this.orderArticles.forEach(function(el) {
                 if(el.article.beleg === 1)
-                    needsPrinting = true
+                    needsPrinting = true;
             });
 
             if(needsPrinting)
