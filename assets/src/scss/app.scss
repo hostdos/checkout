@@ -150,7 +150,7 @@
         }
         .price .total {
             font-size: 14px;
-
+            padding-bottom: 50px;
         }
         .orderList {
             h2 {
@@ -159,6 +159,7 @@
             }
             .printonly {
                 font-size: 16px;
+                margin-bottom: 15px;
                 &::before {
                     display: none;
                 }
@@ -166,6 +167,7 @@
             ul {
                 padding-left: 0px;
                 li {
+                    margin-top: 5px;
                     font-size: 12px;
                     &::before {
                         content: "-";

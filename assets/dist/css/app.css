@@ -113,16 +113,19 @@
       text-align: left;
       border: none; }
     #app .price .total {
-      font-size: 14px; }
+      font-size: 14px;
+      padding-bottom: 50px; }
     #app .orderList h2 {
       display: none; }
     #app .orderList .printonly {
-      font-size: 16px; }
+      font-size: 16px;
+      margin-bottom: 15px; }
       #app .orderList .printonly::before {
         display: none; }
     #app .orderList ul {
       padding-left: 0px; }
       #app .orderList ul li {
+        margin-top: 5px;
         font-size: 12px; }
         #app .orderList ul li::before {
           content: "-";
