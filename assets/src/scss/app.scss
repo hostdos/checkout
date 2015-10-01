@@ -38,6 +38,9 @@
         .row {
             margin-bottom: 30px;
         }
+        .row:first-child {
+            display: inline-block;
+        }
         .square {
             height: 150px;
             text-align: center;
@@ -45,6 +48,8 @@
             width: 100%; 
             word-wrap:break-word; 
             white-space: normal;
+            margin-bottom: 15px;
+            margin-top: 15px;
             .name {
                 font-size: 18px;
                 word-wrap:break-word;
